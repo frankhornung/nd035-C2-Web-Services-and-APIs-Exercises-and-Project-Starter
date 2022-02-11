@@ -1,0 +1,10 @@
+INSERT INTO Price (currency, price, VEHICLE_ID) values ('EUR', 17500, 1);
+INSERT INTO Price (currency, price, VEHICLE_ID) values ('USD', 55000, 2);
+INSERT INTO Price (currency, price, VEHICLE_ID) values ('EUR', 25999, 3);
+INSERT INTO Price (currency, price, VEHICLE_ID) values ('GBP', 33500, 4);
+INSERT INTO Price (currency, price, VEHICLE_ID) values ('EUR', 9999, 5);
+INSERT INTO Price (currency, price, VEHICLE_ID) values ('EUR', 43212, 6);
+INSERT INTO Price (currency, price, VEHICLE_ID) values ('EUR', 7777, 7);
+INSERT INTO Price (currency, price, VEHICLE_ID) values ('EUR', 87000, 8);
+INSERT INTO Price (currency, price, VEHICLE_ID) values ('EUR', 15000, 9);
+INSERT INTO Price (currency, price, VEHICLE_ID) values ('EUR', 34000, 10);
