@@ -65,7 +65,7 @@ class CarController {
     // on firefox, i still get the com.sun.istack.SAXException2, but with insomnia it works ...???
     // https://www.dineshonjava.com/using-consumes-and-produces-to/
     //@Produces({MediaType.APPLICATION_JSON_VALUE})
-    // THE above is not required in case the accept-header of the client is set to application/json
+    // THE above is not required in case the accept-header of the client is set to application/json like in my insomnia
     @GetMapping("/{id}")
     Resource<Car> get(@PathVariable Long id) {
         return assembler.toResource(carService.findById(id));
