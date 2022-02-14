@@ -1,6 +1,7 @@
 package com.udacity.vehicles.api;
 
 
+import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
@@ -11,9 +12,11 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.validation.Valid;
+import javax.ws.rs.*;
 
 import org.springframework.hateoas.Resource;
 import org.springframework.hateoas.Resources;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,6 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Implements a REST-based controller for the Vehicles API.
  */
+
 @RestController
 @RequestMapping("/cars")
 class CarController {
@@ -56,6 +60,11 @@ class CarController {
      * @param id the id number of the given vehicle
      * @return all information for the requested vehicle
      */
+    // https://knowledge.udacity.com/questions/286730
+    // https://stackoverflow.com/questions/32403097/unable-to-get-different-content-types-in-request-mapping-using-spring-framework
+    // on firefox, i still get the com.sun.istack.SAXException2, but with insomnia it works ...???
+    // https://www.dineshonjava.com/using-consumes-and-produces-to/
+    @Produces({MediaType.APPLICATION_JSON_VALUE})
     @GetMapping("/{id}")
     Resource<Car> get(@PathVariable Long id) {
         /**
@@ -63,7 +72,7 @@ class CarController {
          * TODO: Use the `assembler` on that car and return the resulting output.
          *   Update the first line as part of the above implementing.
          */
-        return assembler.toResource(new Car());
+        return assembler.toResource(carService.findById(id));
     }
 
     /**

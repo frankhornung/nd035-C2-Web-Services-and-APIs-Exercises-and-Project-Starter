@@ -34,10 +34,10 @@ public class PriceClient {
         try {
             Price price = client
                     .get()
+                    // see: https://www.amitph.com/spring-webclient-request-parameters/
                     .uri(uriBuilder -> uriBuilder
-                            .path("services/price/")
-                            .queryParam("vehicleId", vehicleId)
-                            .build()
+                            .path("/prices/{priceId}")
+                            .build(vehicleId)
                     )
                     .retrieve().bodyToMono(Price.class).block();
 
